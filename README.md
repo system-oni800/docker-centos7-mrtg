@@ -1,7 +1,8 @@
-docker-cent6-mrtg
+docker-centos7-mrtg
 ==================
+Install mrtg on centos7-based docker container.
 
-mrtg on docker/centos6
+mrtg on docker/centos7
 
 Make a mrtg environment using the Docker.
 
