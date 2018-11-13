@@ -2,7 +2,6 @@ FROM centos:latest
 LABEL MAINTAINER system-oni800
 
 ENV IP _SET_IP_   # set to allow IP to access monit mgr
-ENV PW adminpass00
 ENV MONITPW monitpass
 
 ## Step01. set yum/rpm environment for mrtg
@@ -11,7 +10,6 @@ RUN yum clean all
 RUN yum update -y -q
 RUN yum install -y -q sudo openssh-server syslog wget httpd httpd-devel net-snmp net-snmp-utils mrtg yum-cron patch
 RUN yum install -y epel-release
-#RUN yum install -y --enablerepo=epel monit
 RUN rpm -ivh http://ftp.riken.jp/Linux/fedora/epel/7/x86_64/Packages/m/monit-5.25.1-1.el7.x86_64.rpm
 
 RUN localedef -f UTF-8 -i ja_JP ja_JP
@@ -60,4 +58,3 @@ ADD syslog.logrotated    /etc/logrptate.d/syslog
 RUN mkdir /var/log/archive
 
 EXPOSE 80 2812 161/UDP 162/UDP 
-
